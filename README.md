@@ -212,10 +212,10 @@ smartthings edge:drivers:install
 ## 파일 구조
 
 ```
-weather-api-spinefarm/
+Weather_And_Air_Quality/
 ├── config.yaml                  # 드라이버 메타데이터
 ├── profiles/
-│   └── weather-api-spinefarm.yaml  # 디바이스 프로필 (4개 컴포넌트)
+│   └── weather-and-air-quality-main.yaml  # 디바이스 프로필 (4개 컴포넌트)
 ├── src/
 │   ├── init.lua                 # 드라이버 엔트리포인트 + 타이머 + 디바이스 생성
 │   ├── discovery.lua            # 디바이스 검색 로직 (초기 1개만)

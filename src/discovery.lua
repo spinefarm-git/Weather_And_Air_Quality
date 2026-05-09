@@ -13,7 +13,7 @@ local discovery = {}
 --  - 여기서는 고정된 device_network_id로 디바이스 1개 생성
 -----------------------------------------------------------------------
 function discovery.handle_discovery(driver, _should_continue)
-  log.info("weather-api-spinefarm 장치 찾기 시작")
+  log.info("weather-and-air-quality 장치 찾기 시작")
 
   local metadata = {
     type = "LAN",

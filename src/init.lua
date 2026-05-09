@@ -443,7 +443,7 @@ end
 -----------------------------------------------------------------------
 -- [9] 드라이버 정의 및 실행
 -----------------------------------------------------------------------
-local spinefarm_driver = Driver("weather-api-spinefarm", {
+local spinefarm_driver = Driver("weather-and-air-quality", {
   discovery = discovery.handle_discovery,
   lifecycle_handlers = {
     init        = device_init,
