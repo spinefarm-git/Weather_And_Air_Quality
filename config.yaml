@@ -1,0 +1,6 @@
+name: Weather and Air Quality
+packageKey: weather-api-spinefarm_v1
+description: "기상청 날씨 실황·예보 및 에어코리아 대기질을 표시"
+permissions:
+  lan: {}
+  discovery: {}

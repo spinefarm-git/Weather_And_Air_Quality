@@ -1,0 +1,65 @@
+name: weather-and-air-quality-setup
+components:
+  - id: main
+    label: "API KEY 발급"
+    capabilities:
+      - id: refresh
+        version: 1
+    categories:
+      - name: TempSensor
+
+  - id: kmaApi
+    label: "기상청 API"
+    capabilities:
+      - id: samplecircle50208.setupCard
+        version: 1
+    categories:
+      - name: TempSensor
+
+  - id: airkoreaApi
+    label: "에어코리아 API"
+    capabilities:
+      - id: samplecircle50208.setupCard
+        version: 1
+    categories:
+      - name: TempSensor
+
+preferences:
+  - name: proxyUrl
+    title: "Edge Bridge URL"
+    description: "예: http://192.168.0.60:8088"
+    required: true
+    preferenceType: string
+    definition:
+      stringType: text
+      default: "http://192.168.0.60:8088"
+
+  - name: apiKey
+    title: "[공통] 공공데이터포털 API 키 (Encoding)"
+    description: "공공데이터포털 일반 인증키를 입력하세요. 기상청/에어코리아 API는 동일한 인증키를 사용합니다."
+    required: false
+    preferenceType: string
+    definition:
+      stringType: text
+      default: ""
+
+deviceConfig:
+  dashboard:
+    states:
+      - component: kmaApi
+        capability: samplecircle50208.setupCard
+        version: 1
+    actions: []
+  detailView:
+    - component: kmaApi
+      capability: samplecircle50208.setupCard
+      version: 1
+    - component: airkoreaApi
+      capability: samplecircle50208.setupCard
+      version: 1
+    - component: main
+      capability: refresh
+      version: 1
+  automation:
+    conditions: []
+    actions: []

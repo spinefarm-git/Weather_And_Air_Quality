@@ -1,0 +1,130 @@
+name: weather-and-air-quality-child
+components:
+  - id: main
+    label: "실황"
+    capabilities:
+      - id: achievedictionary39087.cardMessage
+        version: 1
+      - id: temperatureMeasurement
+        version: 1
+      - id: relativeHumidityMeasurement
+        version: 1
+      - id: achievedictionary39087.precipitationLive
+        version: 1
+      - id: achievedictionary39087.windInfo
+        version: 1
+      - id: dustSensor
+        version: 1
+      - id: refresh
+        version: 1
+      - id: healthCheck
+        version: 1
+    categories:
+      - name: TempSensor
+
+  - id: todayForecast
+    label: "오늘 예보"
+    capabilities:
+      - id: achievedictionary39087.skyType
+        version: 1
+      - id: achievedictionary39087.precipitationInfo
+        version: 1
+      - id: achievedictionary39087.temperatureRange
+        version: 1
+      - id: achievedictionary39087.dustForecast
+        version: 1
+    categories:
+      - name: TempSensor
+
+  - id: tomorrowForecast
+    label: "내일 예보"
+    capabilities:
+      - id: achievedictionary39087.skyType
+        version: 1
+      - id: achievedictionary39087.precipitationInfo
+        version: 1
+      - id: achievedictionary39087.temperatureRange
+        version: 1
+      - id: achievedictionary39087.dustForecast
+        version: 1
+    categories:
+      - name: TempSensor
+
+  - id: status
+    label: "기기 상태"
+    capabilities:
+      - id: achievedictionary39087.debugMessage
+        version: 1
+    categories:
+      - name: TempSensor
+
+preferences:
+  - name: refreshInterval
+    title: "[공통] 실황 갱신 주기"
+    description: "초단기실황 갱신 간격 (KMA 데이터는 매 정각 발행)"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        "10": "10분"
+        "20": "20분"
+        "30": "30분 (기본)"
+        "60": "60분"
+      default: "30"
+
+  - name: gridX
+    title: "[기상청 API] 격자 X 좌표 (nx)"
+    description: "예: 서울 기준 60"
+    required: true
+    preferenceType: integer
+    definition:
+      minimum: 21
+      maximum: 144
+      default: 60
+
+  - name: gridY
+    title: "[기상청 API] 격자 Y 좌표 (ny)"
+    description: "예: 서울 기준 127"
+    required: true
+    preferenceType: integer
+    definition:
+      minimum: 8
+      maximum: 147
+      default: 127
+
+  - name: stationName
+    title: "[에어코리아 API] 측정소명"
+    description: "예: 강남구, 중구 등"
+    required: false
+    preferenceType: string
+    definition:
+      stringType: text
+      default: "강남구"
+
+  - name: regionName
+    title: "[에어코리아 API] 예보 권역"
+    description: "선택한 권역의 대기질 예보를 표시합니다."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        seoul: "서울"
+        jeju: "제주"
+        jeonnam: "전남"
+        jeonbuk: "전북"
+        gwangju: "광주"
+        gyeongnam: "경남"
+        gyeongbuk: "경북"
+        ulsan: "울산"
+        daegu: "대구"
+        busan: "부산"
+        chungnam: "충남"
+        chungbuk: "충북"
+        sejong: "세종"
+        daejeon: "대전"
+        yeongdong: "강원영동"
+        yeongseo: "강원영서"
+        gyeonggiSouth: "경기남부"
+        gyeonggiNorth: "경기북부"
+        incheon: "인천"
+      default: "seoul"
