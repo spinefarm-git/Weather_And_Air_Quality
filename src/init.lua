@@ -397,14 +397,14 @@ local function device_info_changed(driver, device, _, args)
       type = "EDGE_CHILD",
       parent_device_id = device.id,
       parent_assigned_child_key = child_key,
-      label = string.format("Weather API Spinefarm (Child %d)", next_num),
+      label = string.format("Weather and Air Quality Spinefarm (Child %d)", next_num),
       profile = CHILD_PROFILE,
       vendor_provided_label = "Child Device"
     }
 
-    emit_status(device, string.format("Child %d 장치 생성 요청됨", child_count + 1))
+    emit_status(device, string.format("Child %d 장치 생성 요청됨", next_num))
     driver:try_create_device(metadata)
-    log.info(string.format("새 장치 생성 요청 완료: DNI=%s", unique_id))
+    log.info(string.format("새 장치 생성 요청 완료: key=%s", child_key))
   end
 
   -- apiKey 필드 변경 감지 (ST 설정 메뉴에서 직접 입력한 경우)
