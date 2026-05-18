@@ -79,7 +79,7 @@ local function update_card_message(device)
   end
 
   local sky_label = SKY_LABEL[tostring(sky_code)] or sky_code
-  local msg = string.format("%d°C, %d%%, %s", math.floor(temp + 0.5), math.floor(humidity + 0.5), sky_label)
+  local msg = string.format("%.1f°C, %d%%, %s", temp, math.floor(humidity + 0.5), sky_label)
 
   if cardMessage_cap then
     device:emit_component_event(
