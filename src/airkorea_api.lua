@@ -115,7 +115,7 @@ function airkorea_api.fetch_live(device)
     return nil, nil, false, "측정소명 미설정", "api"
   end
 
-  local endpoint = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"
+  local endpoint = "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"
   local query = string.format("?serviceKey=%s&returnType=json&numOfRows=1&pageNo=1&stationName=%s&dataTerm=DAILY&ver=1.3",
     service_key, url_encode(station_name))
   local target_url = endpoint .. query
@@ -191,7 +191,7 @@ function airkorea_api.fetch_forecast(device)
   local today_date = os.date("%Y-%m-%d", now_kst)
   local tomorrow_date = os.date("%Y-%m-%d", now_kst + 24 * 60 * 60)
 
-  local endpoint = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustFrcstDspth"
+  local endpoint = "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustFrcstDspth"
   local query = string.format("?serviceKey=%s&returnType=json&numOfRows=20&pageNo=1&searchDate=%s",
     service_key, search_date)
   local target_url = endpoint .. query

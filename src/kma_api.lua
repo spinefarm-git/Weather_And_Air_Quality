@@ -46,12 +46,12 @@ local ultra_categories = {
 -- API 타입별 기본 설정
 local API_CONFIG = {
   ultra = {
-    real_api_base = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0",
+    real_api_base = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0",
     endpoint = "/getUltraSrtNcst",
     numOfRows = 10
   },
   vilage = {
-    real_api_base = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0",
+    real_api_base = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0",
     endpoint = "/getVilageFcst",
     numOfRows = 1000
   }
